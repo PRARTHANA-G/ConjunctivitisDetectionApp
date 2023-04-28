@@ -1,4 +1,20 @@
 <resources>
-    <string name="app_name">Conjuntivitis_App</string>
+    <string name="app_name">i-care</string>
     <string name="title_activity_check">CheckActivity</string>
+    <string name="tips">Eye Care Tips:
+        1. Eat Healthy
+
+        2.Do not rub your eyes
+
+        3.Give your eyes a rest
+
+        4.If your eyes are red and swollen, please consult the ophthalmologist.
+
+        5.More tips can be found at:
+        https://nyulangone.org/conditions/conjunctivitis/treatments/home-treatments-for-conjunctivitis
+
+        6.If diagnosed with Conjunctivitis, please quarantine to avoid spread.
+
+        <b>Thank you!</b>
+            Thank you!</string>
 </resources>

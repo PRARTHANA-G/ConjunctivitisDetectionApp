@@ -67,7 +67,6 @@ class CheckActivity : ComponentActivity() {
             startActivityForResult(intent, 100)
         }
         okay_btn.setOnClickListener {
-            resultView.text=""
             okay_btn.setOnClickListener {
                 val dialogBuilder = AlertDialog.Builder(this)
                 val inflater = this.layoutInflater

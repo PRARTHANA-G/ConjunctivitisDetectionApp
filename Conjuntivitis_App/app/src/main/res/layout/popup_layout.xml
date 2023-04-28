@@ -3,37 +3,20 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-
-    <Button
-        android:id="@+id/button"
-        android:layout_width="259dp"
-        android:layout_height="81dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="85dp"
-        android:layout_marginEnd="67dp"
-        android:layout_marginBottom="172dp"
-        android:text="EXIT" />
-
     <EditText
         android:id="@+id/editTextTextMultiLine"
-        android:text="Eye Care Tips:
-                       1. Eat Healthy
-                       2.Do not rub your eyes
-                       3.Give your eyes a rest"
-        android:layout_width="200dp"
-        android:layout_height="200dp"
-        android:layout_above="@+id/button"
+        android:layout_width="245dp"
+        android:layout_height="478dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
-        android:layout_marginStart="80dp"
-        android:layout_marginTop="119dp"
-        android:layout_marginEnd="68dp"
+        android:layout_marginStart="114dp"
+        android:layout_marginTop="159dp"
+        android:layout_marginEnd="53dp"
         android:layout_marginBottom="95dp"
         android:ems="10"
-        android:gravity="start|top"/>
+        android:gravity="start|top"
+        android:text="@string/tips" />
 
 
     <ImageView

@@ -32,7 +32,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginRight="10dp"
-            android:text="Capture Image"/>
+            android:text="CAMERA"/>
 
 
 
@@ -42,7 +42,7 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Predict Image"
+        android:text="Click For Result"
         android:id="@+id/predict_btn"
         android:layout_centerHorizontal="true"
         android:layout_below="@id/linLayout"/>
@@ -54,8 +54,6 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/predict_btn"
         android:layout_centerHorizontal="true"
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="29dp"
         android:text=""
         android:textSize="30dp" />
 
@@ -70,7 +68,7 @@
         android:layout_marginTop="73dp"
         android:layout_marginEnd="242dp"
         android:layout_marginBottom="15dp"
-        android:text="Okay" />
+        android:text="Tips" />
 
     <Button
         android:id="@+id/button3"
