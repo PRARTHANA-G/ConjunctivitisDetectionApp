@@ -49,14 +49,14 @@
 
     <TextView
         android:id="@+id/resultView"
-        android:background="@color/purple_200"
+        android:background="@color/white"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/predict_btn"
         android:layout_centerHorizontal="true"
         android:layout_marginLeft="10dp"
         android:layout_marginTop="29dp"
-        android:text="Prediction"
+        android:text=""
         android:textSize="30dp" />
 
     <Button
@@ -66,11 +66,21 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginStart="154dp"
+        android:layout_marginStart="41dp"
         android:layout_marginTop="73dp"
-        android:layout_marginEnd="129dp"
-        android:layout_marginBottom="49dp"
+        android:layout_marginEnd="242dp"
+        android:layout_marginBottom="15dp"
         android:text="Okay" />
+
+    <Button
+        android:id="@+id/button3"
+        android:layout_width="121dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="36dp"
+        android:layout_marginBottom="14dp"
+        android:text="Exit" />
 
 
 </RelativeLayout>

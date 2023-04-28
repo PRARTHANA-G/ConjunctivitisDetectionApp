@@ -1,5 +1,6 @@
 package com.example.conjuntivitis_app
 
+import android.app.AlertDialog
 import android.content.Intent
 import android.content.Intent.ACTION_GET_CONTENT
 import android.content.res.AssetManager
@@ -37,6 +38,7 @@ class CheckActivity : ComponentActivity() {
     private lateinit var labels: List<String>
     private lateinit var imageProcessor: ImageProcessor
     private lateinit var okay_btn:Button
+    private lateinit var button3:Button
     override fun onCreate(savedInstanceState: Bundle?) {
 
         super.onCreate(savedInstanceState)
@@ -53,6 +55,7 @@ class CheckActivity : ComponentActivity() {
         predict_btn = findViewById(R.id.predict_btn)
         resultView = findViewById(R.id.resultView)
         imageView = findViewById(R.id.imageView)
+        button3=findViewById(R.id.button3)
         var imageProcessor = ImageProcessor.Builder().add(NormalizeOp(0.0f, 255.0f))
             .add(ResizeOp(224, 224, ResizeOp.ResizeMethod.BILINEAR))
             .build()
@@ -65,8 +68,27 @@ class CheckActivity : ComponentActivity() {
         }
         okay_btn.setOnClickListener {
             resultView.text=""
+            okay_btn.setOnClickListener {
+                val dialogBuilder = AlertDialog.Builder(this)
+                val inflater = this.layoutInflater
+                val dialogView = inflater.inflate(R.layout.popup_layout, null)
+                dialogBuilder.setView(dialogView)
+
+                val alertDialog = dialogBuilder.create()
+
+                val exitImageView = dialogView.findViewById<ImageView>(R.id.exit_icon)
+                exitImageView.setOnClickListener {
+                    alertDialog.dismiss()
+                }
+
+                alertDialog.show()
+            }
+
+        }
+        button3.setOnClickListener {
             finish()
         }
+
         camera_btn.setOnClickListener {
             val takePictureIntent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
             if (takePictureIntent.resolveActivity(packageManager) != null) {
@@ -80,22 +102,13 @@ class CheckActivity : ComponentActivity() {
             var tensorImage = TensorImage(DataType.FLOAT32)
             tensorImage.load(bitmap)
             tensorImage = imageProcessor.process(tensorImage)
-            val classNames= listOf("Conjunctivitis Possible.Please quarantine and consult your doctor.","Healthy Eye!")
-
-
             val model = LiteModel.newInstance(this)
             val inputFeature0 =
                 TensorBuffer.createFixedSize(intArrayOf(1, 224, 224, 3), DataType.FLOAT32)
             inputFeature0.loadBuffer(tensorImage.buffer)
             val outputs = model.process(inputFeature0)
             val outputFeature0 = outputs.outputFeature0AsTensorBuffer.floatArray
-            /*val predictedIndex = if (outputFeature0[0]< 0.5) {
-                0
-            } else {
-                1
-            }
-            val predictedLabel= classNames[predictedIndex]
-            resultView.text=predictedLabel*/
+
             var maxIdx = 0
             outputFeature0.forEachIndexed() { index, fl ->
                 if (outputFeature0[maxIdx] > fl) {
