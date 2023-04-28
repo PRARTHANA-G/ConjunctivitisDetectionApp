@@ -31,15 +31,33 @@ class MainActivity : ComponentActivity() {
     private lateinit var bitmap: Bitmap
     private lateinit var labels: List<String>
     private lateinit var imageProcessor: ImageProcessor
+    private lateinit var okay_btn: Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_start)
+        val checkNowBtn = findViewById<Button>(R.id.check_now_btn)
 
+        checkNowBtn.setOnClickListener {
+            val intent = Intent(this, CheckActivity::class.java)
+            startActivity(intent)
+        }
+
+
+    }
+    @Preview(showBackground = true)
+    @Composable
+    fun GreetingPreview() {
+        Conjuntivitis_AppTheme {
+
+        }
+    }
+}
         // get asset manager
-        val assetManager: AssetManager = applicationContext.assets
+        /*val assetManager: AssetManager = applicationContext.assets
 
         // read labels from file
-        var labels = assetManager.open("labels.txt").bufferedReader().readLines()
+        labels = assetManager.open("labels.txt").bufferedReader().readLines()
 
         setContentView(R.layout.activity_main)
         select_btn = findViewById(R.id.select_btn)
@@ -47,6 +65,7 @@ class MainActivity : ComponentActivity() {
         predict_btn = findViewById(R.id.predict_btn)
         resultView = findViewById(R.id.resultView)
         imageView = findViewById(R.id.imageView)
+        okay_btn=findViewById(R.id.okay_btn)
 
         var imageProcessor = ImageProcessor.Builder().add(NormalizeOp(0.0f, 255.0f))
             .add(ResizeOp(120, 120, ResizeOp.ResizeMethod.BILINEAR))
@@ -65,6 +84,11 @@ class MainActivity : ComponentActivity() {
                 val REQUEST_IMAGE_CAPTURE = 1
                 startActivityForResult(takePictureIntent, REQUEST_IMAGE_CAPTURE)
             }
+        }
+
+        okay_btn.setOnClickListener {
+            resultView.text = ""
+            finish()
         }
 
         predict_btn.setOnClickListener {
@@ -115,10 +139,10 @@ class MainActivity : ComponentActivity() {
             }
         }
     }
-}
+}*/
 
 
-
+/*
 fun FloatArray.indexOfMax(): Int {
     var maxIndex = 0
     for (i in indices) {
@@ -128,13 +152,5 @@ fun FloatArray.indexOfMax(): Int {
     }
     return maxIndex
 }
-
-
-
-@Preview(showBackground = true)
-@Composable
-fun GreetingPreview() {
-    Conjuntivitis_AppTheme {
-
-    }
-}
+*/
+*/
