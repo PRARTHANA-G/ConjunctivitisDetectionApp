@@ -44,7 +44,7 @@ class CheckActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         val assetManager: AssetManager = applicationContext.assets
         // read labels from file
-       labels = assetManager.open("labels.txt").bufferedReader().readLines()
+       val labels = assetManager.open("labels.txt").bufferedReader().readLines()
         //labels= listOf("Red","White")
 
 
@@ -98,6 +98,8 @@ class CheckActivity : ComponentActivity() {
 
 
         predict_btn.setOnClickListener {
+
+            val classNames= listOf("Conjunctivitis Possible","Healthy!");
             var tensorImage = TensorImage(DataType.FLOAT32)
             tensorImage.load(bitmap)
             tensorImage = imageProcessor.process(tensorImage)
@@ -108,9 +110,20 @@ class CheckActivity : ComponentActivity() {
             val outputs = model.process(inputFeature0)
             val outputFeature0 = outputs.outputFeature0AsTensorBuffer.floatArray
 
+            /*val predictedIndex=if(outputFeature0[0]<0.5){
+                1
+            }else{
+                0
+            }
+
+            val predictedLabel=classNames[predictedIndex]
+            resultView.text=predictedLabel*/
+
+
+
             var maxIdx = 0
             outputFeature0.forEachIndexed() { index, fl ->
-                if (outputFeature0[maxIdx] > fl) {
+                if (outputFeature0[maxIdx] < fl) {
                     maxIdx = index
                 }
             }

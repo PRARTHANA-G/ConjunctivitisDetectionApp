@@ -9,18 +9,24 @@
     tools:ignore="MissingDefaultResource">
 
     <TextView
-        android:id="@+id/start_text"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_height="500dp"
         android:layout_above="@+id/check_now_btn"
+        android:drawableBottom="@drawable/screenshot_2023_04_29_at_10_52_59_am"
+        android:layout_marginBottom="180dp" />
 
+    <TextView
+        android:id="@+id/start_text"
+        android:layout_width="310dp"
+        android:layout_height="134dp"
+        android:layout_above="@+id/check_now_btn"
         android:layout_alignParentEnd="true"
         android:layout_marginStart="120dp"
         android:layout_marginTop="200dp"
-        android:layout_marginEnd="115dp"
-        android:layout_marginBottom="76dp"
+        android:layout_marginEnd="121dp"
+        android:layout_marginBottom="21dp"
         android:text="i-care"
-        android:textSize="40sp"
+        android:textSize="50sp"
         android:textStyle="bold" />
 
     <Button
